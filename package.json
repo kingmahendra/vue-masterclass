@@ -12,14 +12,23 @@
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "supabase:init": "supabase init",
+    "supabase:login": "supabase login",
+    "supabase:link": "supabase link --project-ref tcjgpufybxxaywzrmoql",
+    "db:migration:new": "supabase migration new",
+    "db:reset": "supabase db reset --linked",
+    "db:seed": "node --env-file=.env database/seed.js",
+    "supabase:type": "npx supabase gen types typescript --project-id tcjgpufybxxaywzrmoql --schema public > database/database.types.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.99.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "^24.11.0",
     "@vitejs/plugin-vue": "^6.0.4",
@@ -33,6 +42,7 @@
     "npm-run-all2": "^8.0.4",
     "oxlint": "~1.50.0",
     "prettier": "3.8.1",
+    "supabase": "^2.78.1",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-vue-devtools": "^8.0.6",
