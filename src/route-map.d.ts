@@ -17,7 +17,8 @@ import type {
 
 declare module 'vue-router' {
   interface TypesConfig {
-    ParamParsers: never
+    ParamParsers:
+      | never
   }
 }
 
@@ -40,6 +41,13 @@ declare module 'vue-router/auto-routes' {
       { catchAll: ParamValue<false> },
       | never
     >,
+    '/login': RouteRecordInfo<
+      '/login',
+      '/login',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/projects/': RouteRecordInfo<
       '/projects/',
       '/projects',
@@ -54,6 +62,13 @@ declare module 'vue-router/auto-routes' {
       { slug: ParamValue<false> },
       | never
     >,
+    '/register': RouteRecordInfo<
+      '/register',
+      '/register',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tasks/': RouteRecordInfo<
       '/tasks/',
       '/tasks',
@@ -66,6 +81,13 @@ declare module 'vue-router/auto-routes' {
       '/tasks/:id',
       { id: ParamValue<true> },
       { id: ParamValue<false> },
+      | never
+    >,
+    '/users/[username]': RouteRecordInfo<
+      '/users/[username]',
+      '/users/:username',
+      { username: ParamValue<true> },
+      { username: ParamValue<false> },
       | never
     >,
   }
@@ -93,6 +115,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/login.vue': {
+      routes:
+        | '/login'
+      views:
+        | never
+    }
     'src/pages/projects/index.vue': {
       routes:
         | '/projects/'
@@ -105,6 +133,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/register.vue': {
+      routes:
+        | '/register'
+      views:
+        | never
+    }
     'src/pages/tasks/index.vue': {
       routes:
         | '/tasks/'
@@ -114,6 +148,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tasks/[id].vue': {
       routes:
         | '/tasks/[id]'
+      views:
+        | never
+    }
+    'src/pages/users/[username].vue': {
+      routes:
+        | '/users/[username]'
       views:
         | never
     }
